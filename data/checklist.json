@@ -1,0 +1,238 @@
+{
+ "fases": [
+  {
+   "id": "start",
+   "titel": "Bij start dienst",
+   "wanneer": {
+    "min": 0,
+    "ref": "dienstStart"
+   }
+  },
+  {
+   "id": "voor",
+   "titel": "Voor de eerste wedstrijd",
+   "wanneer": {
+    "label": "uiterlijk ",
+    "min": -15,
+    "ref": "eersteWedstrijd"
+   }
+  },
+  {
+   "id": "tijdens",
+   "titel": "Tijdens de dienst",
+   "wanneer": {
+    "label": "vanaf ",
+    "min": 0,
+    "ref": "eersteWedstrijd"
+   }
+  },
+  {
+   "id": "afsluiten",
+   "titel": "Afsluiten",
+   "wanneer": {
+    "label": "na laatste wedstrijd ca. ",
+    "min": 0,
+    "ref": "laatsteEinde"
+   }
+  }
+ ],
+ "items": [
+  {
+   "fase": "start",
+   "id": "s1",
+   "info": "Open de kantine met de sleutel uit de sleutelkast, zet het alarm uit met de code en doe de lichten in kantine, bar en keuken aan.",
+   "tekst": "Kantine open, lichten aan, alarm uit"
+  },
+  {
+   "fase": "start",
+   "id": "s2",
+   "info": "Zet de koelkasten en de Gamko’s onder de bar aan (als ze uit stonden) en kijk op de thermometer: koelkasten horen op 7 °C of kouder te staan. Is het warmer, meld het bij de kantinecoördinator.",
+   "tekst": "Koelkasten en Gamko’s aan, temperatuur gecontroleerd"
+  },
+  {
+   "fase": "start",
+   "id": "s3",
+   "info": "Zet de Twelve-kassa aan en log in. Doe een testbetaling of controleer dat het pinapparaat verbinding heeft, zodat je bij de eerste klant niet voor verrassingen staat.",
+   "tekst": "Kassa (Twelve) aan en pinapparaat getest"
+  },
+  {
+   "fase": "start",
+   "id": "s4",
+   "info": "Zet het koffieapparaat aan zodat het op temperatuur komt, vul het waterreservoir en zet de waterkoker of heetwatertap aan voor de thee.",
+   "tekst": "Koffiemachine en theewater aan"
+  },
+  {
+   "fase": "start",
+   "id": "s5",
+   "info": "Open Spotify op deze iPad met de knop hieronder. Het bord kiest automatisch de afspeellijst die bij de periode hoort (bijv. Oktoberfest of Kerst). Houd het volume zo dat gesprekken aan de bar goed te voeren blijven.",
+   "spotify": {
+    "thema": true
+   },
+   "tekst": "Muziek aan (afspeellijst van de periode)"
+  },
+  {
+   "fase": "voor",
+   "id": "v1",
+   "info": "Maak limonade aan in de kannen (siroop en koud water, ongeveer 1 op 6) en zet de bekers en dienbladen klaar voor de rustmomenten. Hoeveel bekers per wedstrijd nodig zijn, zie je op het tabblad Limonade & thee.",
+   "tekst": "Limonade aangemaakt, bekers en dienbladen klaargezet",
+   "tijd": {
+    "min": -15,
+    "ref": "eersteWedstrijd"
+   }
+  },
+  {
+   "fase": "voor",
+   "id": "v2",
+   "info": "Vul de koelingen aan met frisdrank en bier, zet snoep en koek vooraan in de vitrine en controleer of de prijzen op het bord kloppen. Een kwartier voor de eerste wedstrijd moet alles klaar zijn voor publiek.",
+   "tekst": "Bar en vitrine aangevuld, kantine klaar voor publiek",
+   "tijd": {
+    "min": -15,
+    "ref": "eersteWedstrijd"
+   }
+  },
+  {
+   "fase": "tijdens",
+   "id": "t1",
+   "info": "Zet om 12:00 de frituur aan. Controleer eerst de olie: is die donker, schuimt die of ruikt die verbrand, dan moet de olie vervangen worden. Het oliepeil moet tussen de min- en maxstreep staan. Het duurt 10 tot 15 minuten voordat de olie op 175 °C is.",
+   "tekst": "Frituur aan, olie gecontroleerd op kleur en niveau",
+   "tijd": {
+    "vast": "12:00"
+   }
+  },
+  {
+   "fase": "tijdens",
+   "id": "t2",
+   "info": "Neem tussen de drukte door de tafels en de bar af met een schone doek en sop. Ruim lege glazen en bekers op zodat de kantine er netjes bij blijft.",
+   "tekst": "Tafels en bar tussendoor afgenomen"
+  },
+  {
+   "fase": "tijdens",
+   "id": "t3",
+   "info": "Is de vaatwasser klaar, ruim hem dan uit en vul hem opnieuw met vuile glazen en kopjes, zodat er altijd schoon glaswerk is.",
+   "tekst": "Vaatwasser geleegd en opnieuw gevuld"
+  },
+  {
+   "fase": "tijdens",
+   "id": "t4",
+   "info": "Kijk of de afvalbakken in de kantine en buiten vol raken. Leeg ze op tijd en doe er een nieuwe zak in.",
+   "tekst": "Afvalbakken gecontroleerd en zo nodig geleegd",
+   "naarMaandag": true
+  },
+  {
+   "fase": "tijdens",
+   "id": "t5",
+   "info": "Loop een paar keer per dienst langs de toiletten. Vul toiletpapier en zeep bij en meld het als er iets kapot of erg vies is.",
+   "tekst": "Toiletten gecontroleerd (papier, zeep)",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a1",
+   "info": "Zet na de laatste bestelling de frituur uit, laat de olie afkoelen en doe de deksel erop. Nooit water in of bij hete olie!",
+   "tekst": "Frituur uit en afgedekt",
+   "tijd": {
+    "min": 0,
+    "ref": "laatsteEinde"
+   },
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a2",
+   "info": "Maak de werkbladen, het afmaakstation en de snijplanken schoon met sop en daarna droog. Leg de snijplanken terug op hun vaste plek.",
+   "tekst": "Werkbladen, afmaakstation en snijplanken schoongemaakt",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a3",
+   "info": "Veeg de magnetron van binnen schoon en maak de platen van de tosti-grill schoon als die afgekoeld zijn.",
+   "tekst": "Magnetron en tosti-grill schoon",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a4",
+   "info": "Dek etenswaren die over zijn af, schrijf de datum erop en zet ze in de koelkast. Gooi weg wat over de datum is.",
+   "tekst": "Resten afgedekt en met datum in de koelkast",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a5",
+   "info": "Spoel de tap door en maak de lekbakken schoon. Maak de bar en de spoelbak schoon en laat alles droog achter.",
+   "tekst": "Bar, tap en spoelbak schoon",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a6",
+   "info": "Vul de koelingen weer aan uit de voorraad, zodat de volgende dienst meteen kan beginnen. Noteer op de bestellijst wat bijna op is.",
+   "tekst": "Koelkasten bijgevuld, bestellijst bijgewerkt",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a7",
+   "info": "Neem alle tafels af en zet de stoelen omhoog op de tafels, zodat de vloer schoongemaakt kan worden.",
+   "tekst": "Tafels afgenomen, stoelen omhoog",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a8",
+   "info": "Veeg de vloer van keuken en kantine en dweil daarna met sop. Begin achterin en werk naar de deur toe.",
+   "tekst": "Vloer keuken en kantine geveegd en gedweild",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a9",
+   "info": "Breng het afval naar de container en het glas naar de glasbak. Doe nieuwe zakken in de afvalbakken.",
+   "tekst": "Afval en glas naar de container",
+   "naarMaandag": true
+  },
+  {
+   "fase": "afsluiten",
+   "id": "a10",
+   "info": "Zet de muziek uit, sluit de kassa af volgens de instructie, doe alle lichten uit, zet het alarm aan en controleer of alle deuren en ramen op slot zijn.",
+   "tekst": "Muziek uit, kassa afgesloten, lichten uit, deuren op slot",
+   "naarMaandag": true
+  }
+ ],
+ "maandag": {
+  "titel": "Onderhoud maandag",
+  "items": [
+   {
+    "id": "m1",
+    "tekst": "Kleedkamers en douches schoongemaakt",
+    "info": "Veeg en dweil de kleedkamers en douches, maak de banken af en haal achtergebleven spullen weg (naar de gevonden voorwerpen)."
+   },
+   {
+    "id": "m2",
+    "tekst": "Toiletten grondig schoongemaakt",
+    "info": "Toiletten, wastafels en spiegels schoonmaken, papier en zeep aanvullen."
+   },
+   {
+    "id": "m3",
+    "tekst": "Afval rond de velden en tribune opgeruimd",
+    "info": "Loop langs de velden, de tribune en het terras en raap zwerfafval op. Leeg de afvalbakken buiten."
+   },
+   {
+    "id": "m4",
+    "tekst": "Doelen, netten en ballenkooien gecontroleerd",
+    "info": "Kijk of doelen goed vastzitten en netten heel zijn. Meld kapotte materialen bij de materiaalcommissie."
+   },
+   {
+    "id": "m5",
+    "tekst": "Voorraad kantine gecontroleerd en bestellijst bijgewerkt",
+    "info": "Controleer de voorraad in het magazijn en vul de bestellijst aan voor de volgende levering."
+   },
+   {
+    "id": "m6",
+    "tekst": "Storingen en reparaties genoteerd",
+    "info": "Noteer wat er kapot is of niet goed werkt (lampen, kranen, deuren) en geef het door aan het bestuur."
+   }
+  ]
+ }
+}

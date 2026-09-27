@@ -1,0 +1,85 @@
+{
+ "perioden": [
+  {
+   "id": "seizoensstart",
+   "naam": "Seizoensstart",
+   "tot": "09-18",
+   "url": "",
+   "van": "08-01"
+  },
+  {
+   "id": "oktoberfest",
+   "naam": "Oktoberfest",
+   "tot": "10-23",
+   "url": "",
+   "van": "09-19"
+  },
+  {
+   "id": "halloween",
+   "naam": "Halloween",
+   "tot": "10-31",
+   "url": "",
+   "van": "10-24"
+  },
+  {
+   "id": "herfst",
+   "naam": "Herfst",
+   "tot": "11-13",
+   "url": "",
+   "van": "11-01"
+  },
+  {
+   "id": "sinterklaas",
+   "naam": "Sinterklaas",
+   "tot": "12-05",
+   "url": "",
+   "van": "11-14"
+  },
+  {
+   "id": "kerst",
+   "naam": "Kerst",
+   "tot": "12-26",
+   "url": "",
+   "van": "12-06"
+  },
+  {
+   "id": "nieuwjaar",
+   "naam": "Nieuwjaar / hervatting",
+   "tot": "01-31",
+   "url": "",
+   "van": "12-27"
+  },
+  {
+   "id": "apresski",
+   "naam": "Après-ski / winter",
+   "tot": "02-28",
+   "url": "",
+   "van": "02-01"
+  },
+  {
+   "id": "voorjaar",
+   "naam": "Voorjaar",
+   "tot": "04-19",
+   "url": "",
+   "van": "03-01"
+  },
+  {
+   "id": "koningsdag",
+   "naam": "Koningsdag",
+   "tot": "04-27",
+   "url": "",
+   "van": "04-20"
+  },
+  {
+   "id": "zomer",
+   "naam": "Zomer / seizoensafsluiting",
+   "tot": "07-31",
+   "url": "",
+   "van": "04-28"
+  }
+ ],
+ "standaard": {
+  "naam": "Kantine standaard",
+  "url": ""
+ }
+}

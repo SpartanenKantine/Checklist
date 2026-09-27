@@ -1,0 +1,638 @@
+{
+ "bijgewerkt": "24-09-2026 15:00",
+ "bron": "spartanen.nl + Sportlink handbal",
+ "dagen": {
+  "2026-09-26": {
+   "aantalHandbal": 3,
+   "aantalVoetbal": 12,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-09-26",
+   "dienstStart": "07:45",
+   "eersteWedstrijd": "08:45",
+   "laatsteEinde": "16:55",
+   "momenten": [
+    {
+     "aanvang": "08:45",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0845-SpartanenO93",
+     "klaar": "09:07",
+     "sport": "voetbal",
+     "thuis": "Spartanen O9-3",
+     "uit": "WSW O9-1JM",
+     "veld": "veld B B1"
+    },
+    {
+     "aanvang": "08:45",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0845-SpartanenO103",
+     "klaar": "09:12",
+     "sport": "voetbal",
+     "thuis": "Spartanen O10-3",
+     "uit": "Beemster O10-2",
+     "veld": "veld B B2"
+    },
+    {
+     "aanvang": "09:00",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0900-SpartanenO81",
+     "klaar": "09:22",
+     "sport": "voetbal",
+     "thuis": "Spartanen O8-1",
+     "uit": "Blokkers de O8-1",
+     "veld": "veld B A1"
+    },
+    {
+     "aanvang": "09:00",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0900-SpartanenO82",
+     "klaar": "09:22",
+     "sport": "voetbal",
+     "thuis": "Spartanen O8-2",
+     "uit": "VVS 46 O8-2",
+     "veld": "veld B A2"
+    },
+    {
+     "aanvang": "09:15",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v0915-SpartanenO132",
+     "klaar": "09:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen O13-2",
+     "uit": "KGB O13-3",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "09:30",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "h0930-SpartanenE2",
+     "klaar": "09:50",
+     "sport": "handbal",
+     "thuis": "Spartanen E2",
+     "uit": "Westfriesland/SEW E1",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "10:40",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "h1040-SpartanenE1",
+     "klaar": "11:00",
+     "sport": "handbal",
+     "thuis": "Spartanen E1",
+     "uit": "KRAS/Volendam E2",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "10:45",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v1045-SpartanenO101",
+     "klaar": "11:12",
+     "sport": "voetbal",
+     "thuis": "Spartanen O10-1",
+     "uit": "Blokkers de O10-5",
+     "veld": "veld B A1"
+    },
+    {
+     "aanvang": "10:45",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "v1045-SpartanenO112",
+     "klaar": "11:17",
+     "sport": "voetbal",
+     "thuis": "Spartanen O11-2",
+     "uit": "Grasshoppers O11-1",
+     "veld": "veld B B"
+    },
+    {
+     "aanvang": "11:15",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1115-SpartanenMO151",
+     "klaar": "11:50",
+     "sport": "voetbal",
+     "thuis": "Spartanen MO15-1",
+     "uit": "Westfriezen MO15-2",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "11:50",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "h1150-SpartanenD1",
+     "klaar": "12:10",
+     "sport": "handbal",
+     "thuis": "Spartanen D1",
+     "uit": "Quintes/VVW D2",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "12:15",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1215-SpartanenO152",
+     "klaar": "12:50",
+     "sport": "voetbal",
+     "thuis": "Spartanen O15-2",
+     "uit": "RKEDO O15-1",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "13:30",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1330-SpartanenO172",
+     "klaar": "14:10",
+     "sport": "voetbal",
+     "thuis": "Spartanen O17-2",
+     "uit": "Kwiek 78 O17-1",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "14:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1400-SpartanenO161",
+     "klaar": "14:40",
+     "sport": "voetbal",
+     "thuis": "Spartanen O16-1",
+     "uit": "VVS 46 O16-2",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "15:30",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1530-SpartanenO141",
+     "klaar": "16:05",
+     "sport": "voetbal",
+     "thuis": "Spartanen O14-1",
+     "uit": "Jisp O14-1",
+     "veld": "veld A"
+    }
+   ]
+  },
+  "2026-09-27": {
+   "aantalHandbal": 5,
+   "aantalVoetbal": 3,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-09-27",
+   "dienstStart": "09:00",
+   "eersteWedstrijd": "10:00",
+   "laatsteEinde": "16:20",
+   "momenten": [
+    {
+     "aanvang": "10:00",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "h1000-SpartanenDC3",
+     "klaar": "10:25",
+     "sport": "handbal",
+     "thuis": "Spartanen DC3",
+     "uit": "Sporting Andijk DC1",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "11:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1100-SpartanenO191",
+     "klaar": "11:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen O19-1",
+     "uit": "AFC O19-1",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "11:20",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "h1120-SpartanenDC1",
+     "klaar": "11:45",
+     "sport": "handbal",
+     "thuis": "Spartanen DC1",
+     "uit": "KRAS/Volendam DC1",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "11:30",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1130-Spartanen3",
+     "klaar": "12:15",
+     "sport": "voetbal",
+     "thuis": "Spartanen 3",
+     "uit": "Limmen 3",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "12:30",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "h1230-SpartanenDC2",
+     "klaar": "12:55",
+     "sport": "handbal",
+     "thuis": "Spartanen DC2",
+     "uit": "DSO DC1",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "13:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1300-Spartanen6",
+     "klaar": "13:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen 6",
+     "uit": "VVW 6",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "13:50",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "thee",
+     "id": "h1350-SpartanenDS1",
+     "klaar": "14:20",
+     "sport": "handbal",
+     "thuis": "Spartanen DS1",
+     "uit": "Lacom '91 DS2",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "15:10",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "limonade",
+     "id": "h1510-SpartanenDA1",
+     "klaar": "15:40",
+     "sport": "handbal",
+     "thuis": "Spartanen DA1",
+     "uit": "KSV DA1",
+     "veld": "handbalveld"
+    }
+   ]
+  },
+  "2026-09-30": {
+   "aantalHandbal": 1,
+   "aantalVoetbal": 0,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-09-30",
+   "dienstStart": "19:15",
+   "eersteWedstrijd": "20:15",
+   "laatsteEinde": "21:15",
+   "momenten": [
+    {
+     "aanvang": "20:15",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "thee",
+     "id": "h2015-SpartanenDMW1",
+     "klaar": "20:40",
+     "sport": "handbal",
+     "thuis": "Spartanen DMW1",
+     "uit": "Excelsior '53 DMW1",
+     "veld": "handbalveld"
+    }
+   ]
+  },
+  "2026-10-03": {
+   "aantalHandbal": 0,
+   "aantalVoetbal": 10,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-10-03",
+   "dienstStart": "07:45",
+   "eersteWedstrijd": "08:45",
+   "laatsteEinde": "16:25",
+   "momenten": [
+    {
+     "aanvang": "08:45",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0845-SpartanenO94",
+     "klaar": "09:07",
+     "sport": "voetbal",
+     "thuis": "Spartanen O9-4",
+     "uit": "RKEDO O9-2",
+     "veld": "veld B A1"
+    },
+    {
+     "aanvang": "09:15",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0915-SpartanenO81",
+     "klaar": "09:37",
+     "sport": "voetbal",
+     "thuis": "Spartanen O8-1",
+     "uit": "Always Forward O8-2",
+     "veld": "veld B A2"
+    },
+    {
+     "aanvang": "09:15",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0915-SpartanenO93",
+     "klaar": "09:37",
+     "sport": "voetbal",
+     "thuis": "Spartanen O9-3",
+     "uit": "Westfriezen O9-2",
+     "veld": "veld B B1"
+    },
+    {
+     "aanvang": "09:15",
+     "bekers": {
+      "thuis": 10,
+      "uit": 10
+     },
+     "drank": "limonade",
+     "id": "v0915-SpartanenO103",
+     "klaar": "09:42",
+     "sport": "voetbal",
+     "thuis": "Spartanen O10-3",
+     "uit": "Oosthuizen O10-2",
+     "veld": "veld B B2"
+    },
+    {
+     "aanvang": "09:15",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v0915-SpartanenO132",
+     "klaar": "09:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen O13-2",
+     "uit": "Spirit 30 (SC) O13-2JM",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "11:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1100-SpartanenMO151",
+     "klaar": "11:35",
+     "sport": "voetbal",
+     "thuis": "Spartanen MO15-1",
+     "uit": "FC Medemblik MO15-1",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "11:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1100-SpartanenO152",
+     "klaar": "11:35",
+     "sport": "voetbal",
+     "thuis": "Spartanen O15-2",
+     "uit": "Victoria O O15-1",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "13:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1300-SpartanenO161",
+     "klaar": "13:40",
+     "sport": "voetbal",
+     "thuis": "Spartanen O16-1",
+     "uit": "Always Forward O16-2",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "13:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1300-SpartanenO172",
+     "klaar": "13:40",
+     "sport": "voetbal",
+     "thuis": "Spartanen O17-2",
+     "uit": "Westfriezen O17-2",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "15:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "limonade",
+     "id": "v1500-SpartanenO141",
+     "klaar": "15:35",
+     "sport": "voetbal",
+     "thuis": "Spartanen O14-1",
+     "uit": "IVV O14-2",
+     "veld": "veld A"
+    }
+   ]
+  },
+  "2026-10-04": {
+   "aantalHandbal": 1,
+   "aantalVoetbal": 4,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-10-04",
+   "dienstStart": "10:00",
+   "eersteWedstrijd": "11:00",
+   "laatsteEinde": "15:45",
+   "momenten": [
+    {
+     "aanvang": "11:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1100-Spartanen4",
+     "klaar": "11:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen 4",
+     "uit": "DESS 2",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "11:30",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1130-Spartanen2",
+     "klaar": "12:15",
+     "sport": "voetbal",
+     "thuis": "Spartanen 2",
+     "uit": "HSV 3",
+     "veld": "veld A"
+    },
+    {
+     "aanvang": "12:00",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "thee",
+     "id": "h1200-SpartanenDS2",
+     "klaar": "12:30",
+     "sport": "handbal",
+     "thuis": "Spartanen DS2",
+     "uit": "Lacom '91 DS4",
+     "veld": "handbalveld"
+    },
+    {
+     "aanvang": "13:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1300-Spartanen5",
+     "klaar": "13:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen 5",
+     "uit": "Valken de 5",
+     "veld": "veld B"
+    },
+    {
+     "aanvang": "14:00",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "drank": "thee",
+     "id": "v1400-Spartanen1",
+     "klaar": "14:45",
+     "sport": "voetbal",
+     "thuis": "Spartanen 1",
+     "uit": "VVW 1",
+     "veld": "veld A"
+    }
+   ]
+  },
+  "2026-10-05": {
+   "aantalHandbal": 1,
+   "aantalVoetbal": 0,
+   "bijgewerkt": "24-09-2026 15:00",
+   "bron": "spartanen.nl + Sportlink handbal",
+   "datum": "2026-10-05",
+   "dienstStart": "19:00",
+   "eersteWedstrijd": "20:00",
+   "laatsteEinde": "21:00",
+   "momenten": [
+    {
+     "aanvang": "20:00",
+     "bekers": {
+      "thuis": 12,
+      "uit": 12
+     },
+     "drank": "thee",
+     "id": "h2000-SpartanenDMW2",
+     "klaar": "20:25",
+     "sport": "handbal",
+     "thuis": "Spartanen DMW2",
+     "uit": "Tornado DMW2",
+     "veld": "handbalveld"
+    }
+   ]
+  }
+ }
+}

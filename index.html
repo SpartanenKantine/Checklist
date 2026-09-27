@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kantine">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" href="icon.png">
+<title>Kantinebord Spartanen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#eef2ee; --surface:#ffffff; --ink:#15241c; --muted:#5b6b62; --line:#d5ddd6;
+  --grass:#2f7d4f; --grass-soft:#e2efe6; --lemon:#c98a08; --lemon-soft:#fdf1d6;
+  --tea:#8a5a3b; --tea-soft:#f3e7de; --now:#1d5fbf; --now-soft:#e3ecfa; --warn:#b4471f; --warn-soft:#fbe7de;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark; --bg:#0f1712; --surface:#17221b; --ink:#e6eee8; --muted:#9aaba0; --line:#2a3a30;
+  --grass:#5dbb83; --grass-soft:#1d3226; --lemon:#f0b43a; --lemon-soft:#33290f;
+  --tea:#d29b75; --tea-soft:#34251b; --now:#7fb0ff; --now-soft:#18263c; --warn:#f08a62; --warn-soft:#3a2118;}}
+:root[data-theme="dark"]{
+  color-scheme:dark; --bg:#0f1712; --surface:#17221b; --ink:#e6eee8; --muted:#9aaba0; --line:#2a3a30;
+  --grass:#5dbb83; --grass-soft:#1d3226; --lemon:#f0b43a; --lemon-soft:#33290f;
+  --tea:#d29b75; --tea-soft:#34251b; --now:#7fb0ff; --now-soft:#18263c; --warn:#f08a62; --warn-soft:#3a2118;}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.45;margin:0;
+  padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0) env(safe-area-inset-left,0)}
+[hidden]{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 20px 60px;display:grid;gap:20px}
+header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:.01em;margin:0;line-height:1}
+h1 small{display:block;font-family:var(--body);font-size:14px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:6px}
+.clock{font-family:var(--display);font-size:40px;font-weight:600;font-variant-numeric:tabular-nums}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.days button{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:10px 16px;min-height:48px;white-space:nowrap;cursor:pointer}
+.days button[aria-pressed="true"]{border-color:var(--grass);background:var(--grass);color:#fff}
+.days button.ma{border-style:dashed}
+.days button.ma[aria-pressed="true"]{border-style:solid;border-color:var(--now);background:var(--now)}
+.days button .badge{display:inline-block;margin-left:8px;min-width:24px;padding:0 7px;border-radius:999px;background:var(--warn);color:#fff;font-size:14px;text-align:center}
+button:focus-visible,a:focus-visible{outline:3px solid var(--now);outline-offset:2px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat .k{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.stat .v{font-family:var(--display);font-size:38px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat.main{border:2px solid var(--grass);background:var(--grass-soft)}
+.stat.ma{border:2px solid var(--now);background:var(--now-soft)}
+.stat .s{font-size:14px;color:var(--muted)}
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line)}
+.tabs button{font:inherit;font-weight:700;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:12px 14px;color:var(--muted);cursor:pointer;min-height:48px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--grass)}
+.tabs .count{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.list{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:86px 1fr auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--line);border-radius:12px;padding:12px 14px}
+.row.limonade{border-left-color:var(--lemon)}
+.row.thee{border-left-color:var(--tea)}
+.row.now{background:var(--now-soft);border-color:var(--now);border-left-color:var(--now)}
+.row.done,.crow.done{opacity:.55}
+.row.done .team,.crow.done .txt{text-decoration:line-through}
+.time{font-family:var(--display);font-size:32px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.time small{display:block;font-family:var(--body);font-size:12px;font-weight:400;color:var(--muted);margin-top:4px}
+.team{font-weight:700}
+.meta{font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:4px}
+.pill{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px}
+.pill.limonade{background:var(--lemon-soft);color:var(--lemon)}
+.pill.thee{background:var(--tea-soft);color:var(--tea)}
+.pill.van{background:var(--warn-soft);color:var(--warn)}
+.cups{font-variant-numeric:tabular-nums}
+.cups b{font-family:var(--display);font-size:22px}
+.tick{width:64px;height:64px;border-radius:14px;border:3px solid var(--line);background:var(--surface);color:var(--grass);font-size:34px;font-weight:700;cursor:pointer;display:grid;place-items:center}
+.tick[aria-pressed="true"]{background:var(--grass);border-color:var(--grass);color:#fff}
+.section h3{font-family:var(--display);font-size:24px;margin:8px 0 8px;letter-spacing:.02em}
+.crow{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.crow .when{font-size:13px;color:var(--muted)}
+.crow.due{background:var(--now-soft);border-color:var(--now)}
+.crow.music{border-left:6px solid var(--grass)}
+.crow.carry{border-left:6px solid var(--warn)}
+.ctime{font-family:var(--display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.ctime small{display:block;font-family:var(--body);font-size:11px;font-weight:400;color:var(--muted);margin-top:3px}
+.fase{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fasetijd{font-family:var(--body);font-size:15px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.spot{display:inline-flex;align-items:center;gap:6px;margin-top:8px;min-height:44px;padding:8px 14px;border-radius:999px;background:var(--grass);color:#fff;font-weight:700;text-decoration:none}
+.txt{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.info{flex:none;width:32px;height:32px;border-radius:50%;border:2px solid var(--now);background:var(--surface);color:var(--now);font:italic 700 17px/1 Georgia,"Times New Roman",serif;cursor:pointer;display:grid;place-items:center}
+.info[aria-expanded="true"]{background:var(--now);color:#fff}
+.balloon{position:relative;margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--now-soft);border:1px solid var(--now);font-size:16px;line-height:1.5;max-width:62ch;display:grid;gap:10px}
+.balloon::before{content:"";position:absolute;top:-8px;left:18px;width:14px;height:14px;background:var(--now-soft);border-left:1px solid var(--now);border-top:1px solid var(--now);transform:rotate(45deg)}
+.bclose{justify-self:start;font:inherit;font-size:14px;font-weight:700;background:none;border:0;color:var(--now);padding:6px 0;cursor:pointer}
+.note{font-size:14px;color:var(--muted);margin:0}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:24px;text-align:center;color:var(--muted)}
+.banner{border-radius:10px;padding:10px 14px;background:var(--lemon-soft);color:var(--ink);font-size:15px}
+@media (max-width:560px){
+  .crow{grid-template-columns:52px 1fr auto;gap:10px}
+  .row{grid-template-columns:64px 1fr auto;gap:10px}
+  .time{font-size:24px}.tick{width:54px;height:54px}.clock{font-size:30px}
+}
+@media (prefers-reduced-motion:no-preference){.row,.crow{transition:opacity .2s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="titel">Kantinebord Spartanen<small id="updated">Hero Sportpark Spartanen · Wognum</small></h1>
+    <div class="clock" id="clock" aria-live="off">--:--</div>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+  <nav class="days" id="days" aria-label="Speeldagen en onderhoud"></nav>
+  <section class="summary" id="summary"></section>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" id="tab-drinks" aria-selected="true">Limonade &amp; thee <span class="count" id="c-drinks"></span></button>
+    <button role="tab" id="tab-clean" aria-selected="false">Checklist <span class="count" id="c-clean"></span></button>
+  </div>
+  <section id="drinks" class="list" aria-labelledby="tab-drinks"></section>
+  <section id="clean" aria-labelledby="tab-clean" hidden></section>
+  <section id="maandag" hidden></section>
+  <p class="note" id="voet"></p>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const DAGNAAM=['zo','ma','di','wo','do','vr','za'];
+const DAGVOL=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const MAAND=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const today=()=>iso(new Date());
+const addDays=(s,n)=>{const d=new Date(s+'T12:00');d.setDate(d.getDate()+n);return iso(d)};
+const hm=()=>{const d=new Date();return pad(d.getHours())+':'+pad(d.getMinutes())};
+const label=s=>{const d=new Date(s+'T12:00');return DAGNAAM[d.getDay()]+' '+d.getDate()+' '+MAAND[d.getMonth()]};
+const labelVol=s=>{const d=new Date(s+'T12:00');return DAGVOL[d.getDay()]+' '+d.getDate()+' '+MAAND[d.getMonth()]};
+const toMin=t=>{const [h,m]=t.split(':').map(Number);return h*60+m};
+const fromMin=x=>pad(Math.floor(x/60))+':'+pad(x%60);
+const localStamp=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16);
+
+/* ---------- opslag op deze iPad ---------- */
+const KEY_V='spartanen-kantine-vinkjes-v1', KEY_D='spartanen-kantine-dagen-v1';
+function load(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def}catch(e){return def}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+let opslagOk=true;
+
+/* ---------- state ---------- */
+const state={dagen:load(KEY_D,{}),meta:{},clean:null,muziek:null,vinkjes:load(KEY_V,{}),
+  sel:null,tab:'drinks',openInfo:null,geladen:false,fout:null};
+
+// oude gegevens opruimen (> 60 dagen)
+(function prune(){const grens=addDays(today(),-60);
+  for(const k of Object.keys(state.vinkjes)) if(k<grens) delete state.vinkjes[k];
+  for(const k of Object.keys(state.dagen)) if(k<grens) delete state.dagen[k];
+  save(KEY_V,state.vinkjes);save(KEY_D,state.dagen)})();
+
+function item(day,id){const v=state.vinkjes[day];return v&&v[id]}
+function isDone(day,id){const x=item(day,id);return !!(x&&x.done)}
+function doneAt(day,id){const x=item(day,id);return x&&x.done?x.at:null}
+function toggle(days,id){
+  days=[].concat(days);const val=!days.every(d=>isDone(d,id)),at=localStamp();
+  days.forEach(day=>{const cur=state.vinkjes[day]||{};cur[id]={done:val,at};state.vinkjes[day]=cur});
+  opslagOk=save(KEY_V,state.vinkjes);
+  render();
+}
+
+/* ---------- maandag ---------- */
+const MA='ma';
+function onderhoudsMaandag(){ // vandaag als het maandag is, anders de eerstvolgende maandag
+  const t=today(),d=new Date(t+'T12:00').getDay();
+  return d===1?t:addDays(t,(8-d)%7);
+}
+function weekendVan(ma){return [addDays(ma,-2),addDays(ma,-1)].filter(k=>state.dagen[k])}
+function doorgeschoven(ma){ // niet-afgevinkte weekendtaken (of afgevinkt vanaf maandag)
+  const c=state.clean; if(!c)return [];
+  const out=[];
+  weekendVan(ma).forEach(day=>{
+    c.items.filter(it=>it.naarMaandag).forEach(it=>{
+      const id='c-'+it.id, at=doneAt(day,id);
+      if(!at||at.slice(0,10)>=ma) out.push({day,it,id,done:!!at,at});
+    });
+  });
+  return out;
+}
+
+/* ---------- speeldagen ---------- */
+function upcoming(){return Object.keys(state.dagen).sort().filter(k=>k>=today()).slice(0,3)}
+function dayDoc(){return state.sel&&state.sel!==MA?state.dagen[state.sel]:null}
+
+function renderDays(){
+  const nav=$('days');nav.textContent='';
+  upcoming().forEach(k=>{const b=document.createElement('button');b.type='button';
+    b.textContent=(k===today()?'Vandaag · ':'')+label(k);b.setAttribute('aria-pressed',String(k===state.sel));
+    b.onclick=()=>{state.sel=k;state.selAuto=false;state.openInfo=null;render()};nav.appendChild(b)});
+  const ma=onderhoudsMaandag(),open=new Set(doorgeschoven(ma).filter(x=>!x.done).map(x=>x.id)).size;
+  const b=document.createElement('button');b.type='button';b.className='ma';
+  b.textContent='Onderhoud '+(ma===today()?'vandaag':label(ma));
+  if(open){const s=document.createElement('span');s.className='badge';s.textContent=open;s.setAttribute('aria-label',open+' doorgeschoven taken');b.appendChild(s)}
+  b.setAttribute('aria-pressed',String(state.sel===MA));
+  b.onclick=()=>{state.sel=MA;state.selAuto=false;state.openInfo=null;render()};nav.appendChild(b);
+}
+function stat(k,v,s,cls){const d=document.createElement('div');d.className='stat'+(cls?' '+cls:'');
+  const a=document.createElement('div');a.className='k';a.textContent=k;const b=document.createElement('div');b.className='v';b.textContent=v;d.append(a,b);
+  if(s){const c=document.createElement('div');c.className='s';c.textContent=s;d.appendChild(c)}return d}
+const cups=m=>{const b=m.bekers||{};return (b.thuis||0)+(b.uit||0)};
+
+function renderSummary(doc){
+  const s=$('summary');s.textContent='';
+  if(!doc)return;
+  const lim=doc.momenten.filter(m=>m.drank==='limonade'),thee=doc.momenten.filter(m=>m.drank==='thee');
+  s.append(stat('Start dienst',doc.dienstStart,'eerste wedstrijd '+doc.eersteWedstrijd,'main'),
+    stat('Aantal wedstrijden',String((doc.aantalVoetbal||0)+(doc.aantalHandbal||0)),'voetbal '+(doc.aantalVoetbal||0)+' · handbal '+(doc.aantalHandbal||0)),
+    stat('Laatste wedstrijd klaar','ca. '+doc.laatsteEinde),
+    stat('Bekers limonade',String(lim.reduce((a,m)=>a+cups(m),0)),lim.length+' rustmomenten'),
+    stat('Bekers thee',String(thee.reduce((a,m)=>a+cups(m),0)),thee.length+' rustmomenten'));
+}
+function tickBtn(day,id,txt){const t=document.createElement('button');t.type='button';t.className='tick';
+  const d=[].concat(day).every(x=>isDone(x,id));t.setAttribute('aria-pressed',String(d));t.setAttribute('aria-label',(d?'Afgevinkt: ':'Afvinken: ')+txt);
+  t.textContent=d?'✓':'';t.onclick=()=>toggle(day,id);return t}
+
+function renderDrinks(doc){
+  const box=$('drinks');box.textContent='';
+  if(!doc){box.innerHTML='<div class="empty">Geen thuiswedstrijden op deze dag.</div>';$('c-drinks').textContent='';return}
+  const day=state.sel,now=hm(),isToday=day===today();
+  const ms=[...doc.momenten].sort((a,b)=>a.klaar.localeCompare(b.klaar));
+  const next=isToday?ms.find(m=>!isDone(day,m.id)&&m.klaar>=now):null;
+  if(!ms.length)box.innerHTML='<div class="empty">Geen rustmomenten op deze dag.</div>';
+  let done=0;
+  ms.forEach(m=>{
+    const d=isDone(day,m.id);if(d)done++;
+    const r=document.createElement('div');r.className='row '+m.drank+(d?' done':'')+(next&&next.id===m.id?' now':'');
+    const tm=document.createElement('div');tm.className='time';tm.textContent=m.klaar;
+    const sm=document.createElement('small');sm.textContent='aanvang '+(m.aanvang||'');tm.appendChild(sm);
+    const mid=document.createElement('div');
+    const tt=document.createElement('div');tt.className='team';tt.textContent=m.thuis+' – '+m.uit;
+    const meta=document.createElement('div');meta.className='meta';
+    const p=document.createElement('span');p.className='pill '+m.drank;p.textContent=m.drank;
+    const c=document.createElement('span');c.className='cups';const bb=document.createElement('b');bb.textContent=cups(m);c.append(bb,' bekers');
+    const b=m.bekers||{};const c2=document.createElement('span');c2.textContent='thuis '+(b.thuis||0)+' · uit '+(b.uit||0);
+    const sp=document.createElement('span');sp.textContent=m.sport+(m.veld?' · '+m.veld:'');
+    meta.append(p,c,c2,sp);
+    if(d){const w=document.createElement('span');w.textContent='klaar om '+doneAt(day,m.id).slice(11,16);meta.appendChild(w)}
+    mid.append(tt,meta);r.append(tm,mid,tickBtn(day,m.id,m.thuis));box.appendChild(r);
+  });
+  $('c-drinks').textContent=ms.length?done+'/'+ms.length:'';
+}
+function refTime(doc,w){ if(!w||!doc)return null;
+  if(w.vast){const t=toMin(w.vast),s=toMin(doc.dienstStart);return {t:Math.max(t,s),vervroegd:t<s}}
+  const base=doc[w.ref]; if(!base)return null; return {t:toMin(base)+(w.min||0)} }
+function activePlaylist(day){
+  const m=state.muziek; if(!m)return null; const md=(day||today()).slice(5);
+  const inR=p=>p.van<=p.tot?(md>=p.van&&md<=p.tot):(md>=p.van||md<=p.tot);
+  const len=p=>Date.parse((p.van<=p.tot?'2001-':'2002-')+p.tot)-Date.parse('2001-'+p.van);
+  const hits=(m.perioden||[]).filter(inR).sort((a,b)=>len(a)-len(b));
+  return hits[0]||m.standaard||null;
+}
+function taskRow(opts){ // {day,id,it,tijd,klein,due,cls,extra}
+  const {day,id,it}=opts,days=opts.days||[day],d=days.every(x=>isDone(x,id));
+  const r=document.createElement('div');r.className='crow'+(d?' done':'')+(opts.due&&!d?' due':'')+(opts.cls?' '+opts.cls:'');
+  const tm=document.createElement('div');tm.className='ctime';
+  if(opts.tijd){tm.textContent=opts.tijd;if(opts.klein){const sm=document.createElement('small');sm.textContent=opts.klein;tm.appendChild(sm)}}
+  const t=document.createElement('div');const tx=document.createElement('div');tx.className='txt';tx.textContent=it.tekst;
+  const key=day+'|'+id;
+  if(it.info){const ib=document.createElement('button');ib.type='button';ib.className='info';ib.textContent='i';
+    const open=state.openInfo===key;ib.setAttribute('aria-expanded',String(open));ib.setAttribute('aria-label','Uitleg: '+it.tekst);
+    ib.onclick=()=>{state.openInfo=open?null:key;render()};tx.appendChild(ib)}
+  t.appendChild(tx);
+  if(opts.extra)opts.extra.forEach(e=>t.appendChild(e));
+  if(it.info&&state.openInfo===key){const bl=document.createElement('div');bl.className='balloon';bl.setAttribute('role','note');
+    bl.textContent=it.info;const x=document.createElement('button');x.type='button';x.className='bclose';x.textContent='Sluiten';
+    x.onclick=()=>{state.openInfo=null;render()};bl.appendChild(x);t.appendChild(bl)}
+  if(d){const w=document.createElement('div');w.className='when';const at=doneAt(day,id);
+    w.textContent='afgevinkt '+(at.slice(0,10)!==day?label(at.slice(0,10))+' ':'')+'om '+at.slice(11,16);t.appendChild(w)}
+  r.append(tm,t,tickBtn(days,id,it.tekst));return r;
+}
+function spotifyExtra(it,day){
+  const out=[];if(!it.spotify)return out;
+  const p=it.spotify.thema?activePlaylist(day):it.spotify;
+  if(it.spotify.thema){const th=document.createElement('div');th.className='when';th.textContent='Thema: '+(p?p.naam:'standaard');out.push(th)}
+  if(p&&p.url){const a=document.createElement('a');a.className='spot';a.href=p.url;a.target='_blank';a.rel='noopener';a.textContent='▶ '+(p.naam||'Afspeellijst')+' in Spotify';out.push(a)}
+  else{const w=document.createElement('div');w.className='when';w.textContent='Spotify-link volgt';out.push(w)}
+  return out;
+}
+function renderClean(doc){
+  const box=$('clean');box.textContent='';
+  const c=state.clean,day=state.sel;
+  if(!c||!doc){box.innerHTML='<div class="empty">Nog geen checklist beschikbaar.</div>';$('c-clean').textContent='';return}
+  const now=toMin(hm()),isToday=day===today();let tot=0,done=0;
+  c.fases.forEach(f=>{
+    const ft=refTime(doc,f.wanneer);
+    const items=c.items.map((it,i)=>({it,i,rt:refTime(doc,it.tijd)})).filter(x=>x.it.fase===f.id);
+    if(!items.length)return;
+    const base=ft?ft.t:0;items.sort((x,y)=>((x.rt?x.rt.t:base)-(y.rt?y.rt.t:base))||x.i-y.i);
+    const sec=document.createElement('div');sec.className='section';
+    const h=document.createElement('h3');h.className='fase';const ht=document.createElement('span');ht.textContent=f.titel;h.appendChild(ht);
+    if(ft){const t=document.createElement('span');t.className='fasetijd';t.textContent=(f.wanneer.label||'')+fromMin(ft.t);h.appendChild(t)}
+    sec.appendChild(h);const l=document.createElement('div');l.className='list';
+    items.forEach(({it,rt})=>{const id='c-'+it.id;tot++;if(isDone(day,id))done++;
+      l.appendChild(taskRow({day,id,it,tijd:rt?fromMin(rt.t):'',klein:rt&&rt.vervroegd?'bij start':'',
+        due:isToday&&rt&&rt.t<=now,cls:it.spotify?'music':'',extra:spotifyExtra(it,day)}))});
+    sec.appendChild(l);box.appendChild(sec)});
+  $('c-clean').textContent=done+'/'+tot;
+}
+function renderMaandag(){
+  const box=$('maandag');box.textContent='';
+  const ma=onderhoudsMaandag(),c=state.clean;
+  const eigen=(c&&c.maandag&&c.maandag.items)||[];
+  const door=doorgeschoven(ma),weekend=weekendVan(ma);
+  const eigenDone=eigen.filter(it=>isDone(ma,'m-'+it.id)).length,doorDone=door.filter(x=>x.done).length;
+  const s=$('summary');s.textContent='';
+  s.append(stat('Onderhoud',label(ma),ma===today()?'vandaag':(ma<today()?'':'komende maandag'),'ma'),
+    stat('Maandagtaken',eigenDone+'/'+eigen.length,'vaste lijst onderhoudsploeg'),
+    stat('Uit het weekend',String(new Set(door.filter(x=>!x.done).map(x=>x.id)).size),door.length?'nog open van '+weekend.map(label).join(' en '):'niets blijven liggen'));
+  // eigen lijst
+  const sec=document.createElement('div');sec.className='section';
+  const h=document.createElement('h3');h.textContent=(c&&c.maandag&&c.maandag.titel)||'Maandagtaken';sec.appendChild(h);
+  const l=document.createElement('div');l.className='list';
+  if(!eigen.length)l.innerHTML='<div class="empty">Nog geen maandagtaken ingesteld.</div>';
+  eigen.forEach(it=>l.appendChild(taskRow({day:ma,id:'m-'+it.id,it})));
+  sec.appendChild(l);box.appendChild(sec);
+  // doorgeschoven
+  const sec2=document.createElement('div');sec2.className='section';
+  const h2=document.createElement('h3');h2.textContent='Blijven liggen in het weekend';sec2.appendChild(h2);
+  const l2=document.createElement('div');l2.className='list';
+  if(!weekend.length)l2.innerHTML='<div class="empty">Geen speeldagen op '+label(addDays(ma,-2))+' of '+label(addDays(ma,-1))+'.</div>';
+  else if(ma>today()&&!door.length)l2.innerHTML='<div class="empty">Taken van het weekend die niet worden afgevinkt, komen hier vanzelf te staan.</div>';
+  else if(!door.length)l2.innerHTML='<div class="empty">Alles is in het weekend afgevinkt. 👍</div>';
+  const groep=[];door.forEach(x=>{let g=groep.find(g=>g.id===x.id);if(!g){g={id:x.id,it:x.it,days:[]};groep.push(g)}g.days.push(x.day)});
+  groep.forEach(g=>{const w=document.createElement('div');w.className='meta';
+    g.days.forEach(dy=>{const p=document.createElement('span');p.className='pill van';p.textContent='van '+labelVol(dy);w.appendChild(p)});
+    l2.appendChild(taskRow({day:g.days[g.days.length-1],days:g.days,id:g.id,it:g.it,cls:'carry',extra:[w]}))});
+  sec2.appendChild(l2);box.appendChild(sec2);
+}
+function render(){
+  if(state.sel!==MA&&(!state.sel||!upcoming().includes(state.sel))){
+    const keys=upcoming(),t=today(),d=new Date(t+'T12:00').getDay();
+    state.sel=(d===1&&!keys.includes(t))?MA:(keys[0]||MA);state.selAuto=true;
+  }
+  const isMa=state.sel===MA,doc=dayDoc();
+  const bn=$('banner');const msgs=[];
+  if(state.fout)msgs.push(state.fout);
+  if(!isMa&&doc&&doc.waarschuwing)msgs.push(doc.waarschuwing);
+  if(!opslagOk)msgs.push('Let op: vinkjes kunnen niet op deze iPad worden bewaard (privémodus?). Open het bord via het beginscherm.');
+  bn.hidden=!msgs.length;bn.textContent=msgs.join(' · ');
+  const m=state.meta;
+  $('updated').textContent='Hero Sportpark Spartanen'+(m.bijgewerkt?' · rooster bijgewerkt '+m.bijgewerkt:'')+(m.bron?' · bron: '+m.bron:'');
+  renderDays();
+  $('tabs').hidden=isMa;$('maandag').hidden=!isMa;
+  if(isMa){$('drinks').hidden=true;$('clean').hidden=true;renderMaandag();
+    $('voet').textContent='Vinkjes worden op deze iPad bewaard. Afsluit- en schoonmaaktaken die in het weekend niet zijn afgevinkt, schuiven automatisch door naar maandag; wat hier wordt afgevinkt, geldt ook voor die weekenddag.';}
+  else{renderSummary(doc);renderDrinks(doc);renderClean(doc);
+    $('drinks').hidden=state.tab!=='drinks';$('clean').hidden=state.tab!=='clean';
+    $('tab-drinks').setAttribute('aria-selected',String(state.tab==='drinks'));$('tab-clean').setAttribute('aria-selected',String(state.tab==='clean'));
+    $('voet').textContent='De tijd links is de start van de rust: dan staat de limonade of thee klaar. Bekers = spelers + staf per team; de scheidsrechter bestelt zelf aan de bar. Vinkjes worden op deze iPad bewaard.';}
+}
+$('tab-drinks').onclick=()=>{state.tab='drinks';render()};
+$('tab-clean').onclick=()=>{state.tab='clean';render()};
+
+/* ---------- gegevens ophalen ---------- */
+async function getJSON(p){const r=await fetch(p+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error(p+' '+r.status);return r.json()}
+async function laad(){
+  try{
+    const [d,c,m]=await Promise.all([getJSON('data/dagen.json'),getJSON('data/checklist.json'),getJSON('data/muziek.json').catch(()=>null)]);
+    // bewaar ook verlopen dagen lokaal, zodat maandag weet welke weekenddagen speeldagen waren
+    const dagen=Object.assign({},state.dagen,d.dagen||{});
+    Object.keys(dagen).forEach(k=>{if(k>=today()&&!(d.dagen||{})[k])delete dagen[k]}); // vervallen toekomstige dagen weg
+    state.dagen=dagen;save(KEY_D,dagen);
+    state.meta={bijgewerkt:d.bijgewerkt,bron:d.bron};state.clean=c;state.muziek=m;state.fout=null;
+  }catch(e){state.fout='Rooster kon niet worden geladen (geen internet?). Laatst bekende gegevens worden getoond.';}
+  if(state.selAuto)state.sel=null;state.geladen=true;render();
+}
+function tickClock(){$('clock').textContent=hm()}
+let lastDay=today();
+setInterval(()=>{tickClock();if(today()!==lastDay){lastDay=today();state.sel=null;laad()}else render()},30000);
+setInterval(laad,15*60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)laad()});
+tickClock();render();laad();
+})();
+</script>
+</body>
+</html>
