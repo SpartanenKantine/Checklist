@@ -85,6 +85,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset
 .pill.limonade{background:var(--lemon-soft);color:var(--lemon)}
 .pill.thee{background:var(--tea-soft);color:var(--tea)}
 .pill.van{background:var(--warn-soft);color:var(--warn)}
+.kkb{display:inline-flex;align-items:center;padding:2px 9px;border-radius:8px;border:2px solid #c4161c;background:#fbe7e7;color:#15241c;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}.kkb.open{border-style:dashed;border-color:var(--line);background:var(--surface);color:var(--muted);font-weight:400}
 .cups{font-variant-numeric:tabular-nums}
 .cups b{font-family:var(--display);font-size:22px}
 .tick{width:64px;height:64px;border-radius:14px;border:3px solid var(--line);background:var(--surface);color:var(--ok);font-size:34px;font-weight:700;cursor:pointer;display:grid;place-items:center}
@@ -253,12 +254,10 @@ function renderDrinks(doc){
     const tt=document.createElement('div');tt.className='team';tt.textContent=m.thuis+' – '+m.uit;
     const meta=document.createElement('div');meta.className='meta';
     const p=document.createElement('span');p.className='pill '+m.drank;p.textContent=m.drank;
-    const c=document.createElement('span');c.className='cups';const bb=document.createElement('b');bb.textContent=cups(m);c.append(bb,' bekers');
-    const b=m.bekers||{};const c2=document.createElement('span');c2.textContent='thuis '+(b.thuis||0)+' · uit '+(b.uit||0);
-    const sp=document.createElement('span');sp.textContent=m.sport+(m.veld?' · '+m.veld:'');
-    meta.append(p,c,c2,sp);
+    const b=m.bekers||{};const c=document.createElement('span');c.className='cups';const b1=document.createElement('b');b1.textContent=b.thuis||0;const b2=document.createElement('b');b2.textContent=b.uit||0;c.append(b1,' – ',b2,' ('+cups(m)+')');meta.append(p,c);
+    const meta2=document.createElement('div');meta2.className='meta';const k=document.createElement('span');k.className='kkb'+((m.kkThuis||m.kkUit)?'':' open');k.textContent=(m.kkThuis||m.kkUit)?'Kleedkamer thuis '+(m.kkThuis||'volgt')+' – uit '+(m.kkUit||'volgt'):'Kleedkamer volgt';const sp=document.createElement('span');sp.textContent=m.sport+(m.veld?' – '+m.veld:'');meta2.append(k,sp);
     if(d){const w=document.createElement('span');w.textContent='klaar om '+doneAt(day,m.id).slice(11,16);meta.appendChild(w)}
-    mid.append(tt,meta);r.append(tm,mid,tickBtn(day,m.id,m.thuis));box.appendChild(r);
+    mid.append(tt,meta,meta2);r.append(tm,mid,tickBtn(day,m.id,m.thuis));box.appendChild(r);
   });
   $('c-drinks').textContent=ms.length?done+'/'+ms.length:'';
 }
