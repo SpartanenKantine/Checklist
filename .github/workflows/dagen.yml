@@ -1,0 +1,182 @@
+name: Wedstrijden bijwerken
+
+# Haalt elke ochtend het thuisprogramma op (voetbal van spartanen.nl, handbal via Sportlink)
+# en schrijft data/dagen.json voor het kantinebord. Handmatig starten kan via Actions > Run workflow.
+on:
+  schedule:
+    - cron: "0 4 * * *"      # elke dag rond 06:00 (zomertijd) / 05:00 (wintertijd)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bijwerken:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Programma ophalen en dagen.json maken
+        run: |
+          cat > /tmp/update.py <<'PY'
+          import re, json, html, datetime as dt, urllib.request, sys, os
+          from zoneinfo import ZoneInfo
+
+          NL = ZoneInfo("Europe/Amsterdam")
+          NU = dt.datetime.now(NL)
+          VANAF = (NU - dt.timedelta(days=7)).date()
+
+          def get(url):
+              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (kantinebord Spartanen)"})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  return r.read().decode("utf-8", "replace")
+
+          # ---------- rekenregels (KNVB 2025/26, NHV veld) ----------
+          VH = {8:(20,2,10), 9:(20,2,10), 10:(25,2,10), 11:(30,2,15), 12:(30,2,15), 13:(30,0,15),
+                14:(35,0,15), 15:(35,0,15), 16:(40,0,15), 17:(40,0,15), 19:(45,0,15), 20:(45,0,15)}
+          HH = {'F':15,'E':20,'D':20,'C':25,'B':25,'A':30,'S':30,'MW':25}
+
+          def hcat(team):
+              m = re.match(r'(?:[DHJ](?=MW|[A-FS]\d))?(MW|[A-FS])', team.replace('Spartanen ', ''))
+              return m.group(1) if m else 'S'
+
+          def info(team, s):
+              """(minuten tot start rust, totale duur, drank) of None = geen rustmoment"""
+              if s == 'v':
+                  m = re.search(r'\bM?O(\d+)-', team)
+                  if m:
+                      a = int(m.group(1))
+                      if a <= 7 or a not in VH: return None
+                      h, to, r = VH[a]; return h+to, 2*(h+to)+r, 'limonade'
+                  if '35+' in team or '45+' in team: return None
+                  return 45, 105, 'thee'
+              c = hcat(team); h = HH.get(c, 30)
+              return h, 2*h+10, ('thee' if c in ('S','MW') else 'limonade')
+
+          def bek(team, s):
+              if s == 'v':
+                  m = re.search(r'\bM?O(\d+)-', team)
+                  if m:
+                      a = int(m.group(1)); return 8 if a <= 7 else 10 if a <= 10 else 12 if a <= 12 else 16
+                  return 16
+              return 10 if hcat(team) in 'FE' else 12
+
+          short = lambda n: re.sub(r'\s*\((g|d|h)\)|#', '', n.replace('SV Spartanen', 'Spartanen')).strip()
+
+          wedstrijden = []   # (datum, tijd, thuis, uit, sport, veld, kkt, kku)
+
+          # ---------- voetbal: tabel op spartanen.nl ----------
+          try:
+              src = get("https://www.spartanen.nl/programma-voetbal-thuis")
+              rows = re.findall(r'<tr[^>]*>(.*?)</tr>', src, re.S)
+              def cell(row, cls):
+                  m = re.search(r"<td[^>]*class=['\"][^'\"]*\b" + cls + r"\b[^'\"]*['\"][^>]*>(.*?)</td>", row, re.S)
+                  return html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip() if m else ''
+              nv = 0
+              for row in rows:
+                  first = re.search(r'<td[^>]*>\s*(\d{2})-(\d{2})-(\d{4})\s+(\d{2}:\d{2})\s*</td>', row)
+                  if not first: continue
+                  d = f"{first.group(3)}-{first.group(2)}-{first.group(1)}"; t = first.group(4)
+                  wed = cell(row, 'Wedstrijd'); acc = cell(row, 'Accommodatie')
+                  if 'Hero Sportpark Spartanen' not in acc: continue
+                  if re.search(r'afgelast|vervallen', row, re.I): continue
+                  if ' - ' not in wed: continue
+                  th, ui = wed.split(' - ', 1)
+                  wedstrijden.append((d, t, th.strip(), ui.strip(), 'v', cell(row, 'Veld'),
+                                      cell(row, 'Kleedkamerthuisteam'), cell(row, 'Kleedkameruitteam')))
+                  nv += 1
+              print("voetbal:", nv, "thuiswedstrijden op het sportpark")
+              if nv == 0: raise RuntimeError("geen voetbalwedstrijden gevonden – pagina veranderd?")
+          except Exception as e:
+              print("FOUT voetbal:", e); sys.exit(1)
+
+          # ---------- handbal: Sportlink Club.Dataservice (zelfde code als de website) ----------
+          try:
+              j = json.loads(get("https://data.sportlink.com/programma?client_id=BUYNPbUvOD&aantaldagen=180&thuis=JA&uit=NEE"))
+              nh = 0
+              for o in j:
+                  acc = o.get('accommodatie') or ''
+                  if 'Spartanen' not in acc or 'Bloesem' in acc: continue   # alleen veldhandbal op het sportpark
+                  if re.search(r'afgelast|vervallen', o.get('status') or '', re.I): continue
+                  d = (o.get('wedstrijddatum') or '')[:10]; t = o.get('aanvangstijd') or ''
+                  if not d or not t: continue
+                  wedstrijden.append((d, t, o.get('thuisteam',''), o.get('uitteam',''), 'h', o.get('veld') or 'handbalveld',
+                                      o.get('kleedkamerthuisteam') or '', o.get('kleedkameruitteam') or ''))
+                  nh += 1
+              print("handbal:", nh, "thuiswedstrijden op het sportpark")
+          except Exception as e:
+              print("waarschuwing handbal:", e)
+
+          # ---------- per dag uitrekenen ----------
+          T = lambda d, t: dt.datetime.fromisoformat(f"{d} {t}")
+          days = {}
+          for w in wedstrijden:
+              if dt.date.fromisoformat(w[0]) >= VANAF: days.setdefault(w[0], []).append(w)
+          out = {}
+          for d in sorted(days):
+              L = sorted(days[d]); ends = []; rows = []
+              for (dd, t, th, ui, s, veld, kkt, kku) in L:
+                  a = T(d, t); x = info(th, s)
+                  if x is None:
+                      ends.append(a + dt.timedelta(minutes=45)); continue
+                  tr, tot, drank = x; ends.append(a + dt.timedelta(minutes=tot)); n = bek(th, s)
+                  m = {"id": f"{s}{t.replace(':','')}-{re.sub(r'[^A-Za-z0-9]','',short(th))}",
+                       "klaar": (a + dt.timedelta(minutes=tr)).strftime('%H:%M'), "aanvang": t, "drank": drank,
+                       "sport": "voetbal" if s == 'v' else "handbal", "thuis": short(th), "uit": short(ui),
+                       "veld": veld, "bekers": {"thuis": n, "uit": n}}
+                  if kkt: m["kkThuis"] = kkt
+                  if kku: m["kkUit"] = kku
+                  rows.append(m)
+              rows.sort(key=lambda r: (r["klaar"], r["aanvang"]))
+              out[d] = {"datum": d,
+                        "dienstStart": (T(d, L[0][1]) - dt.timedelta(hours=1)).strftime('%H:%M'),
+                        "eersteWedstrijd": L[0][1],
+                        "laatsteEinde": max(ends).strftime('%H:%M'),
+                        "aantalVoetbal": sum(1 for w in L if w[4] == 'v'),
+                        "aantalHandbal": sum(1 for w in L if w[4] == 'h'),
+                        "kleedkamersCompleet": all((w[6] and w[7]) for w in L),
+                        "bijgewerkt": NU.strftime('%d-%m-%Y %H:%M'),
+                        "bron": "spartanen.nl + Sportlink (automatisch)",
+                        "momenten": rows}
+              if not out[d]["kleedkamersCompleet"]:
+                  out[d]["waarschuwing"] = "Nog niet alle kleedkamers ingedeeld in Sportlink."
+
+          data = {"bijgewerkt": NU.strftime('%d-%m-%Y %H:%M'), "bron": "spartanen.nl + Sportlink (automatisch)", "dagen": out}
+          os.makedirs("data", exist_ok=True)
+          oud = None
+          try: oud = json.load(open("data/dagen.json"))
+          except Exception: pass
+          json.dump(data, open("data/dagen.json", "w"), ensure_ascii=False, indent=1)
+          print("dagen:", len(out), list(out)[:6], "...")
+
+          # ---------- bord: bekers per team + regel met kleedkamers (eenmalige aanpassing) ----------
+          p = "index.html"; s = open(p, encoding="utf-8").read()
+          if "meta2" not in s:
+              a = s.index("const c=document.createElement('span');c.className='cups';")
+              e = s.index("mid.append(tt,meta);", a)
+              blok = s[a:e]
+              klaar = blok[blok.index("if(d){"):]          # regel 'klaar om ..' behouden
+              js = ("const b=m.bekers||{};const c=document.createElement('span');c.className='cups';"
+                    "const b1=document.createElement('b');b1.textContent=b.thuis||0;"
+                    "const b2=document.createElement('b');b2.textContent=b.uit||0;"
+                    "c.append(b1,' – ',b2,' ('+cups(m)+')');meta.append(p,c);\n    "
+                    "const meta2=document.createElement('div');meta2.className='meta';"
+                    "const k=document.createElement('span');k.className='kkb'+((m.kkThuis||m.kkUit)?'':' open');"
+                    "k.textContent=(m.kkThuis||m.kkUit)?'Kleedkamer thuis '+(m.kkThuis||'volgt')+' – uit '+(m.kkUit||'volgt'):'Kleedkamer volgt';"
+                    "const sp=document.createElement('span');sp.textContent=m.sport+(m.veld?' – '+m.veld:'');"
+                    "meta2.append(k,sp);\n    ")
+              s = s[:a] + js + klaar + "mid.append(tt,meta,meta2);" + s[e+len("mid.append(tt,meta);"):]
+              css = (".kkb{display:inline-flex;align-items:center;padding:2px 9px;border-radius:8px;border:2px solid #c4161c;"
+                     "background:#fbe7e7;color:#15241c;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}"
+                     ".kkb.open{border-style:dashed;border-color:var(--line);background:var(--surface);color:var(--muted);font-weight:400}\n")
+              s = s.replace(".cups{", css + ".cups{", 1)
+              open(p, "w", encoding="utf-8").write(s); print("index.html: bekers per team en kleedkamerregel toegevoegd")
+          PY
+          python3 /tmp/update.py
+
+      - name: Opslaan als er iets veranderd is
+        run: |
+          git config user.name "kantinebord-bot"
+          git config user.email "kantinebord-bot@users.noreply.github.com"
+          git add data/dagen.json index.html
+          if git diff --cached --quiet; then echo "Geen wijzigingen"; else git commit -m "Wedstrijden automatisch bijgewerkt" && git push; fi
