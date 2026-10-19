@@ -1,36 +1,7 @@
 {
- "bijgewerkt": "18-10-2026 06:17",
+ "bijgewerkt": "19-10-2026 06:22",
  "bron": "spartanen.nl + Sportlink (automatisch)",
  "dagen": {
-  "2026-10-18": {
-   "datum": "2026-10-18",
-   "dienstStart": "09:30",
-   "eersteWedstrijd": "10:30",
-   "laatsteEinde": "12:15",
-   "aantalVoetbal": 1,
-   "aantalHandbal": 0,
-   "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
-   "bron": "spartanen.nl + Sportlink (automatisch)",
-   "momenten": [
-    {
-     "id": "v1030-Spartanen3",
-     "klaar": "11:15",
-     "aanvang": "10:30",
-     "drank": "thee",
-     "sport": "voetbal",
-     "thuis": "Spartanen 3",
-     "uit": "Limmen 3",
-     "veld": "veld A",
-     "bekers": {
-      "thuis": 16,
-      "uit": 16
-     },
-     "kkThuis": "1",
-     "kkUit": "3"
-    }
-   ]
-  },
   "2026-10-24": {
    "datum": "2026-10-24",
    "dienstStart": "08:15",
@@ -39,7 +10,7 @@
    "aantalVoetbal": 6,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -148,7 +119,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -209,7 +180,7 @@
    "aantalVoetbal": 9,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -366,7 +337,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -411,7 +382,7 @@
    "aantalVoetbal": 12,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -600,7 +571,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -661,7 +632,7 @@
    "aantalVoetbal": 10,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -834,7 +805,7 @@
    "aantalVoetbal": 9,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -991,7 +962,7 @@
    "aantalVoetbal": 4,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1068,7 +1039,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": []
   },
@@ -1080,7 +1051,7 @@
    "aantalVoetbal": 10,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1253,7 +1224,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1310,11 +1281,11 @@
    "datum": "2026-12-05",
    "dienstStart": "08:00",
    "eersteWedstrijd": "09:00",
-   "laatsteEinde": "13:04",
-   "aantalVoetbal": 8,
+   "laatsteEinde": "14:10",
+   "aantalVoetbal": 9,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-10-2026 06:17",
+   "bijgewerkt": "19-10-2026 06:22",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1428,6 +1399,22 @@
      },
      "kkThuis": "7",
      "kkUit": "2"
+    },
+    {
+     "id": "v1245-SpartanenO153",
+     "klaar": "13:20",
+     "aanvang": "12:45",
+     "drank": "limonade",
+     "sport": "voetbal",
+     "thuis": "Spartanen O15-3",
+     "uit": "Valken de O15-2",
+     "veld": "veld A",
+     "bekers": {
+      "thuis": 16,
+      "uit": 16
+     },
+     "kkThuis": "1",
+     "kkUit": "3"
     }
    ]
   }
