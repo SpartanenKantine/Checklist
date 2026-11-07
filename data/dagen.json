@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "06-11-2026 12:41",
+ "bijgewerkt": "07-11-2026 11:48",
  "bron": "spartanen.nl + Sportlink (automatisch)",
  "dagen": {
   "2026-11-07": {
@@ -7,10 +7,10 @@
    "dienstStart": "08:00",
    "eersteWedstrijd": "09:00",
    "laatsteEinde": "16:35",
-   "aantalVoetbal": 13,
+   "aantalVoetbal": 12,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -60,22 +60,6 @@
      },
      "kkThuis": "7",
      "kkUit": "2"
-    },
-    {
-     "id": "v0900-SpartanenO131",
-     "klaar": "09:30",
-     "aanvang": "09:00",
-     "drank": "limonade",
-     "sport": "voetbal",
-     "thuis": "Spartanen O13-1",
-     "uit": "Always Forward O13-3",
-     "veld": "veld A",
-     "bekers": {
-      "thuis": 16,
-      "uit": 16
-     },
-     "kkThuis": "1",
-     "kkUit": "3"
     },
     {
      "id": "v1030-SpartanenO92",
@@ -215,7 +199,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -273,10 +257,10 @@
    "dienstStart": "08:00",
    "eersteWedstrijd": "09:00",
    "laatsteEinde": "14:35",
-   "aantalVoetbal": 10,
+   "aantalVoetbal": 9,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -408,22 +392,6 @@
      "kkUit": "14"
     },
     {
-     "id": "v1230-SpartanenO152",
-     "klaar": "13:05",
-     "aanvang": "12:30",
-     "drank": "limonade",
-     "sport": "voetbal",
-     "thuis": "Spartanen O15-2",
-     "uit": "Always Forward O15-3",
-     "veld": "veld B",
-     "bekers": {
-      "thuis": 16,
-      "uit": 16
-     },
-     "kkThuis": "1",
-     "kkUit": "3"
-    },
-    {
      "id": "v1300-SpartanenO171",
      "klaar": "13:40",
      "aanvang": "13:00",
@@ -449,7 +417,7 @@
    "aantalVoetbal": 9,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -606,7 +574,7 @@
    "aantalVoetbal": 4,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -683,7 +651,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": []
   },
@@ -692,10 +660,10 @@
    "dienstStart": "08:00",
    "eersteWedstrijd": "09:00",
    "laatsteEinde": "15:40",
-   "aantalVoetbal": 11,
+   "aantalVoetbal": 10,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -843,22 +811,6 @@
      "kkUit": "3"
     },
     {
-     "id": "v1300-SpartanenO152",
-     "klaar": "13:35",
-     "aanvang": "13:00",
-     "drank": "limonade",
-     "sport": "voetbal",
-     "thuis": "Spartanen O15-2",
-     "uit": "DESS O15-1",
-     "veld": "veld B",
-     "bekers": {
-      "thuis": 16,
-      "uit": 16
-     },
-     "kkThuis": "6",
-     "kkUit": "4"
-    },
-    {
      "id": "v1415-SpartanenMO151",
      "klaar": "14:50",
      "aanvang": "14:15",
@@ -884,7 +836,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -945,7 +897,7 @@
    "aantalVoetbal": 11,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1118,7 +1070,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1160,10 +1112,10 @@
    "dienstStart": "09:30",
    "eersteWedstrijd": "10:30",
    "laatsteEinde": "18:45",
-   "aantalVoetbal": 6,
+   "aantalVoetbal": 5,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1181,22 +1133,6 @@
      },
      "kkThuis": "7",
      "kkUit": "2"
-    },
-    {
-     "id": "v1030-SpartanenO152",
-     "klaar": "11:05",
-     "aanvang": "10:30",
-     "drank": "limonade",
-     "sport": "voetbal",
-     "thuis": "Spartanen O15-2",
-     "uit": "s.v. Enkhuizen O15-2",
-     "veld": "veld B",
-     "bekers": {
-      "thuis": 16,
-      "uit": 16
-     },
-     "kkThuis": "1",
-     "kkUit": "3"
     },
     {
      "id": "v1230-SpartanenO141",
@@ -1272,7 +1208,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1301,7 +1237,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1346,7 +1282,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "06-11-2026 12:41",
+   "bijgewerkt": "07-11-2026 11:48",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
