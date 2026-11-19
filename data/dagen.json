@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "18-11-2026 13:29",
+ "bijgewerkt": "19-11-2026 13:20",
  "bron": "spartanen.nl + Sportlink (automatisch)",
  "dagen": {
   "2026-11-19": {
@@ -10,7 +10,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -38,8 +38,8 @@
    "laatsteEinde": "14:35",
    "aantalVoetbal": 9,
    "aantalHandbal": 0,
-   "kleedkamersCompleet": false,
-   "bijgewerkt": "18-11-2026 13:29",
+   "kleedkamersCompleet": true,
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -182,10 +182,11 @@
      "bekers": {
       "thuis": 16,
       "uit": 16
-     }
+     },
+     "kkThuis": "6",
+     "kkUit": "4"
     }
-   ],
-   "waarschuwing": "Nog niet alle kleedkamers ingedeeld in Sportlink."
+   ]
   },
   "2026-11-22": {
    "datum": "2026-11-22",
@@ -195,7 +196,7 @@
    "aantalVoetbal": 4,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -272,7 +273,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": []
   },
@@ -284,7 +285,7 @@
    "aantalVoetbal": 10,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -457,7 +458,7 @@
    "aantalVoetbal": 3,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -518,7 +519,7 @@
    "aantalVoetbal": 11,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -691,7 +692,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -736,7 +737,7 @@
    "aantalVoetbal": 5,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -829,7 +830,7 @@
    "aantalVoetbal": 1,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -858,7 +859,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -903,7 +904,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -948,7 +949,7 @@
    "aantalVoetbal": 4,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
@@ -1025,7 +1026,7 @@
    "aantalVoetbal": 2,
    "aantalHandbal": 0,
    "kleedkamersCompleet": true,
-   "bijgewerkt": "18-11-2026 13:29",
+   "bijgewerkt": "19-11-2026 13:20",
    "bron": "spartanen.nl + Sportlink (automatisch)",
    "momenten": [
     {
